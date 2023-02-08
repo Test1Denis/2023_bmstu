@@ -6,5 +6,7 @@ int main(int argc, char** argv) {
 		std::cout << i << " : " << argv[i] << std::endl;
 	}
 
+	int a = 0x25F;
+	std::cout << std::dec << a << " " << std::hex << a << std::endl;
 	return 0;
 }
