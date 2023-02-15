@@ -1,52 +1,89 @@
 #include <iostream>
+#include <bitset>
+#include <cstring>
 
-void convertFromPosToNeg(unsigned int number) {
-	int	number1 = ~number;
-	number1 += 0x01;
-	std::cout << std::dec << "pos = " << number << " neg = " << number1 << std::endl;
+
+struct BitAr {
+	int* ar;	
+	int size;
+
+};
+/*	input		:	string
+ *	output		:	std::cout get binary code
+ *	description	:	convert string to binary code
+ *	date		:	2023.02.15
+ *	author		:	
+ *	version		:	v1.0
+ */
+int* convertStrToBitStr(const char* str) {	//нулевой элемент массива это число элементов в массиве
+	int size = strlen(str);
+	int* ar = new int [size * 8 + 1];	
+	ar[0] = size * 8;	//size of all elements as bits 
+	int iterBitAr = 1;	
+	for (int i = 0; i < size; i++) {
+		std::cout << std::bitset<8>(str[i]);
+		auto tempStrBit = std::bitset<8>(str[i]).to_string();
+
+		for (int k = 0; iterBitAr < 8*i + 8 + 1; iterBitAr++, k++) {
+			ar[iterBitAr] = tempStrBit[k] - '0'; //0x30;
+		}
+
+	}
+	std::cout << std::endl;
+
+
+	return ar;
 }
 
-void test_convertFromPosToNeg() {
-	{	//test 1;
-//		convertFormPosToNeg();
-	}
+int* memoryPanic() {
+	int* ar = new int [1000];
+	return ar;
+}
 
+
+int strlen1(const char* str) {
+	int size = 0;
+	while(str[size++] != 0x00);
+	return size-1;
 }
 
 int main(int argc, char** argv) {
-	for (int i = 0; i < argc; i++) {
 
-		std::cout << i << " : " << argv[i] << std::endl;
+	/*
+	for (;;) {
+		int* temp = memoryPanic();
+		delete [] temp;
 	}
-
-	int a = 0x25F;
-	std::cout << std::dec << a << " " << std::hex << a << std::endl;
-
-	for (int i = 0; i < 32; i++) {
-		std::cout << std::dec << (1 << i) 
-					<< "\t" << (unsigned int)(1 << i)
-				   	<< "\t"  << std::hex 
-					<< (1 << i) 
-					<< std::endl;
+	*/
+	int* ar2 = 	convertStrToBitSt("la la la xz\0");
+	std::cout << "-----" << std::endl;
+	for (int i = 1; i < ar2[0] + 1; i++) {
+		std::cout << ar2[i];
 	}
+	std::cout << "-----" << std::endl;
+	delete [] ar2;
+	return 0;
+	task1("lalala xz\0");
 
-	short b = 0x8005;
-	std::cout << std::dec << "b = -5 real = " << b << std::endl;
-	b = -5;
-	std::cout << std::hex << b << std::endl;
-	
-	b = 5;
-	b = ~b;
-	b |= 0x01;
-	std::cout << std::dec << b << std::endl;
+	return 0;
+	char* str;
+	str = new char [128];
+	memset(str, 0x00, 128);
+
+	delete [] str;
+	int a = 122;
+
 
 	for (int i = 0; i < 10; i++) {
-		convertFromPosToNeg(random() % 1000);
+
+		a++;
+
+		std::cout << std::dec << " dec = " << a 
+				  << std::hex << " hex = " << a 
+				  << " bin = " << std::bitset<8 * sizeof(int)>(a)
+				  << std::endl;
+
 	}
-
-	unsigned int tempInt = -1;
-
-	std::cout << std::hex << tempInt << std::endl;
 
 	return 0;
 }
