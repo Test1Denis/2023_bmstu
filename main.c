@@ -2,6 +2,7 @@
 #include <bitset>
 #include <cstring>
 #include <fstream>
+#include <time.h>
 
 void work_with_file() {
 	FILE* fLog;
@@ -35,7 +36,14 @@ void work_with_file() {
 
 
 int main(int argc, char** argv) {
-	work_with_file();
+//	work_with_file();
+//	рандомное заполнение массива!!!
+
+	srand(time(nullptr));
+	for (int i = 0; i < 10; i++) {
+		std::cout << rand() % 100 << " ";
+	}
+	std::cout << std::endl;
 	
 	return 0;
 
