@@ -3,13 +3,6 @@
 #include <cstring>
 #include <fstream>
 
-#include "sorts.h"
-
-using namespace std;
-
-void swap(int&, int&) {
-}
-
 void work_with_file() {
 	FILE* fLog;
 	fLog = fopen("test1", "w");
@@ -31,7 +24,7 @@ void work_with_file() {
 	int number;
 	char tempChar;
 
-	while(fscanf(fLog, "%s\t%d\%c\n", &str[0], &number, &tempChar) != EOF) {
+	while(fscanf(fLog, "%s\t%d\t%c\n", &str[0], &number, &tempChar) != EOF) {
 		std::cout << str << "\t" << number << "\t" << tempChar << std::endl;
 	}
 
@@ -46,9 +39,4 @@ int main(int argc, char** argv) {
 	
 	return 0;
 
-	test_getMax();
-	test_selectionSort();
-	
-
-	return 0;
 }
