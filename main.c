@@ -7,8 +7,8 @@
 #include "infostudent.h"
 
 struct Temp {
-	Temp() {
-		std::cout << __func__ << std::endl;
+	Temp(int a) {
+		std::cout << __func__ << " " << a << std::endl;
 	}
 	~Temp() {
 		std::cout << __func__ << std::endl;
@@ -19,12 +19,12 @@ struct Temp {
 
 int main(int argc, char** argv) {
 
-	struct Temp t1;
+	struct Temp t1(10);
 
 	struct Temp* t;
 
 	std::cout << __LINE__ + 1<< " : ";
-	t = new struct Temp();
+	t = new struct Temp(100);
 
 	std::cout << __LINE__  + 1 << " : ";
 	delete t;
