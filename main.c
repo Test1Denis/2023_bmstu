@@ -61,46 +61,42 @@ void test_Sort(void (*testSort)(int*, int)) {
 	}
 }
 
+void quickSort(int*, int, int, int) {}
 
-int ar100[100];
 
-void govnoCode() {
-	for (int i = 0; i < 4; i++) {
-		switch(i) {
-			case 0 :
-				insertionSort();	
-			break;
-			case 1 :
-				mergeSort();
-			break;
-			case 2 :
-				randFill();
-			break;
-			case 3 :
-				showAr();
-			break;
-		}
+void quickSort1(int* ar, int size) {
+	quickSort(ar, size, 0, size-1);
 }
 
-void govnoCode_v2() {
-	for (int i = 0; i < 4; i++) {
-		if (i == 0) {
+struct Temp {
+	int a;
+	int b;
+};
 
-		}
-		else if {
-
-		}
-		else if {
-
-		}
-		else if {
-
-		}
+void test_structTemp() {
+	{
+		struct Temp staticTemp;
+		staticTemp.a = 10;
+		std::cout << __LINE__ << " " << staticTemp.a << std::endl;
 	}
+
+	{
+		struct Temp* dynamicTemp = nullptr;
+		dynamicTemp = new struct Temp();
+		dynamicTemp->b = 10;
+		(*dynamicTemp).b = 20;
+		std::cout << __LINE__ << " " <<  dynamicTemp->b << std::endl;
+		delete dynamicTemp;
+	}
+
+	
+
 }
 
 
 int main(int argc, char** argv) {
+	test_structTemp();
+	return 0;
 	//test_randFill();	
 	void (*foo[10])(int*, int) = {insertionSort, mergeSort, randFill1, showAr};
 	for (int i = 0; i < 4; i++) {

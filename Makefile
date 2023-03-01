@@ -9,5 +9,8 @@ main.o : main.c
 sorts.o : sorts.c
 	g++ -c sorts.c 
 
+infostudent.o : infostudent.c
+	g++ -c infostudent.c
+
 clean :
 	rm -rf *.o test
