@@ -4,47 +4,44 @@
 #include <fstream>
 #include <time.h>
 
-//#include "infostudent.h"
+#include "infostudent.h"
 
 struct Temp {
-	int a;
-	Temp();	//constructor - иначе конструктор - функция
-	Temp(short);
-	Temp(int);
-	Temp(char);
+	Temp() {
+		std::cout << __func__ << std::endl;
+	}
+	~Temp() {
+		std::cout << __func__ << std::endl;
+	}
+	
 };
-
-Temp::Temp() {
-	std::cout << "constructor is called - " << __func__ << std::endl;
-}
-
-Temp::Temp(int _a) {
-	std::cout << "int constr" << std::endl;
-	a = _a;
-}
-Temp::Temp(short _a) : a(_a) {
-	std::cout << "short constr" << std::endl;
-}
-Temp::Temp(char _a) {
-	std::cout << "char constr" << std::endl;
-}
 
 
 int main(int argc, char** argv) {
 
-	{
-		struct Temp a(10);
-	}
-	{
-		struct Temp a((short)10);
-	}
-	{
-		struct Temp a('a');
-	}
+	struct Temp t1;
+
+	struct Temp* t;
+
+	std::cout << __LINE__ + 1<< " : ";
+	t = new struct Temp();
+
+	std::cout << __LINE__  + 1 << " : ";
+	delete t;
+	std::cout << __LINE__ + 1 << " : ";
+	return 0;
 
 
-//	struct Student group_rl6_21[25];
+	const int countStudent = 10;
+	struct Student group_rl6_21[countStudent];
 
+
+	for (int i = 0; i < countStudent; i++) {
+		std::cout << std::dec << i << " - " 
+			<< group_rl6_21[i].averMark << " " 
+			<< std::hex << group_rl6_21[i].colorEyes 
+			<< std::endl;
+	}
 //	int countRed = countStudentByColor(&group_rl6_21[0], 25, 0x00FF0000);
 
 

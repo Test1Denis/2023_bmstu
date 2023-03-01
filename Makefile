@@ -1,6 +1,6 @@
 all : test
 
-test : main.o sorts.o
+test : main.o sorts.o infostudent.o
 	g++ main.o sorts.o -o test
 
 main.o : main.c
