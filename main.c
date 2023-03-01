@@ -29,8 +29,84 @@ void test_randFill() {
 	}
 }
 
+void insertionSort(int*, int) {
+	std::cout << __func__ << std::endl;
+}
+
+void mergeSort(int*, int) {
+	std::cout << __func__ << std::endl;
+}
+
+
+void randFill1(int* ar, int size) {
+	for (int i = 0; i < size; i++) {
+		ar[i] = i + 1;
+	}
+}
+
+void showAr(int* ar, int size) {
+	for (int i = 0; i < size; i++) {
+		std::cout << ar[i] << " ";
+	}
+	std::cout << std::endl;
+}
+
+void test_Sort(void (*testSort)(int*, int)) {
+	
+	static int count = 0;
+	std::cout << __func__ << " " << count++ << std::endl;
+	static int ar[10];
+	{
+		testSort(ar, 10);
+	}
+}
+
+
+int ar100[100];
+
+void govnoCode() {
+	for (int i = 0; i < 4; i++) {
+		switch(i) {
+			case 0 :
+				insertionSort();	
+			break;
+			case 1 :
+				mergeSort();
+			break;
+			case 2 :
+				randFill();
+			break;
+			case 3 :
+				showAr();
+			break;
+		}
+}
+
+void govnoCode_v2() {
+	for (int i = 0; i < 4; i++) {
+		if (i == 0) {
+
+		}
+		else if {
+
+		}
+		else if {
+
+		}
+		else if {
+
+		}
+	}
+}
+
+
 int main(int argc, char** argv) {
-	test_randFill();	
+	//test_randFill();	
+	void (*foo[10])(int*, int) = {insertionSort, mergeSort, randFill1, showAr};
+	for (int i = 0; i < 4; i++) {
+		test_Sort(foo[i]);
+	}
+
 	return 0;
 
 }
