@@ -3,4 +3,5 @@ a.out
 a.exe
 test1
 *.txt
-
+!tasks.txt
+*.swp
