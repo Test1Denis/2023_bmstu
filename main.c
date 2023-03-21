@@ -19,6 +19,14 @@ struct Temp {
 
 int main(int argc, char** argv) {
 
+	int a, b;
+	char temp;
+	std::cin >> a >> temp >> b;	//>> "/" >> b;// >> std::endl;
+	std::cout << "a = " << a << " b = " << b << std::endl;
+	return 0;
+
+
+
 	struct Temp t1(10);
 
 	struct Temp* t;
