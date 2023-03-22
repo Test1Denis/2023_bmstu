@@ -20,23 +20,26 @@ struct Temp {
 	
 };
 
+struct Node {
+	static int count;
+	Node() {
+		count++;
+	}
+	~Node() {
+		count--;
+	}
+};
+
+int Node::count = 0;
+
 
 int main(int argc, char** argv) {
-	std::vector<Temp> vecTemp;
-	Temp *t1 = new Temp(10);
 
-	for (int i = 0; i < 5; i++)
-		vecTemp.push_back(*t1);
-//	vecTemp.emplacef(t1);
+	std::cout << ++Node::count << std::endl;
 
-	auto iter = vecTemp.begin();
-	while (iter != vecTemp.end()) {
-
-	}
-	for (std::vector<Temp>::iterator iter = vecTemp.begin(); iter != vecTemp.end(); iter++) {
-		std::cout << iter->a << std::endl;	
-		std::cout << (*iter).a << std::endl;
-		
+	Node tempNode[10];
+	for (int i = 0; i < 10; i++) {
+		std::cout << tempNode[i].count << std::endl;
 	}
 
 	return 0;
