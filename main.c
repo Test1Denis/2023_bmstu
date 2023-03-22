@@ -3,12 +3,16 @@
 #include <cstring>
 #include <fstream>
 #include <time.h>
+#include <vector>
+#include <iterator>
 
 #include "infostudent.h"
 
 struct Temp {
-	Temp(int a) {
+	int a;
+	Temp(int _a) {
 		std::cout << __func__ << " " << a << std::endl;
+		a = _a;
 	}
 	~Temp() {
 		std::cout << __func__ << std::endl;
@@ -18,42 +22,22 @@ struct Temp {
 
 
 int main(int argc, char** argv) {
+	std::vector<Temp> vecTemp;
+	Temp *t1 = new Temp(10);
 
-	int a, b;
-	char temp;
-	std::cin >> a >> temp >> b;	//>> "/" >> b;// >> std::endl;
-	std::cout << "a = " << a << " b = " << b << std::endl;
-	return 0;
+	for (int i = 0; i < 5; i++)
+		vecTemp.push_back(*t1);
+//	vecTemp.emplacef(t1);
 
+	auto iter = vecTemp.begin();
+	while (iter != vecTemp.end()) {
 
-
-	struct Temp t1(10);
-
-	struct Temp* t;
-
-	std::cout << __LINE__ + 1<< " : ";
-	t = new struct Temp(100);
-
-	std::cout << __LINE__  + 1 << " : ";
-	delete t;
-	std::cout << __LINE__ + 1 << " : ";
-	return 0;
-
-
-	const int countStudent = 10;
-	struct Student group_rl6_21[countStudent];
-
-
-	for (int i = 0; i < countStudent; i++) {
-		std::cout << std::dec << i << " - " 
-			<< group_rl6_21[i].averMark << " " 
-			<< std::hex << group_rl6_21[i].colorEyes 
-			<< std::endl;
 	}
-//	int countRed = countStudentByColor(&group_rl6_21[0], 25, 0x00FF0000);
-
-
+	for (std::vector<Temp>::iterator iter = vecTemp.begin(); iter != vecTemp.end(); iter++) {
+		std::cout << iter->a << std::endl;	
+		std::cout << (*iter).a << std::endl;
+		
+	}
 
 	return 0;
-
 }
