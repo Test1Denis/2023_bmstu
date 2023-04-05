@@ -1,16 +1,14 @@
-all : test
-
-test : main.o sorts.o infostudent.o
-	g++ main.o sorts.o -o test
+all : main.o test.o filo.o
+	g++ main.o test.o filo.o -g -DTEST_FULL_INFO
 
 main.o : main.c
-	g++ -c main.c
+	g++ -c main.c -g -DTEST_FULL_INFO
 
-sorts.o : sorts.c
-	g++ -c sorts.c 
+test.o : test.c
+	g++ -c test.c -g -DTEST_FULL_INFO
 
-infostudent.o : infostudent.c
-	g++ -c infostudent.c
+filo.o : filo.c
+	g++ -c filo.c -g -DTEST_FULL_INFO
 
 clean :
-	rm -rf *.o test
+	rm -rf *.o a.out

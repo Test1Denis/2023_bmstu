@@ -1,0 +1,14 @@
+all : main.o test.o filo.o
+	g++ main.o test.o filo.o -g
+
+main.o : main.c
+	g++ -c main.c -g
+
+test.o : test.c
+	g++ -c test.c -g
+
+filo.o : filo.c
+	g++ -c filo.c -g
+
+clean :
+	rm -rf *.o a.out
