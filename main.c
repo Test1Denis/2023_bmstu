@@ -6,41 +6,40 @@
 #include <vector>
 #include <iterator>
 
-#include "infostudent.h"
+#include "main.h"
 
-struct Temp {
-	int a;
-	Temp(int _a) {
-		std::cout << __func__ << " " << a << std::endl;
-		a = _a;
-	}
-	~Temp() {
-		std::cout << __func__ << std::endl;
-	}
-	
-};
+#define B1
+#undef	B1
 
-struct Node {
-	static int count;
-	Node() {
-		count++;
-	}
-	~Node() {
-		count--;
-	}
-};
+#define TEST
 
-int Node::count = 0;
+#undef TEST
+#ifdef TEST 
+	flsjdlfjsa;lfjsalfj
+#endif
 
+
+void foo1(class Abase, const std::string& nameA) {
+	std::cout << nameA << std::endl;
+}
+
+
+void foo(int n, const std::string& nameN) {
+	std::cout << n << " " << nameN << std::endl;
+}
 
 int main(int argc, char** argv) {
+#ifdef RL6_21_2023
+	std::cout << "------------------\n";
+	std::cout << "start project" << std::endl;
+	std::cout << "------------------\n";
+#endif
 
-	std::cout << ++Node::count << std::endl;
 
-	Node tempNode[10];
-	for (int i = 0; i < 10; i++) {
-		std::cout << tempNode[i].count << std::endl;
-	}
+	class Abase test;
+	A1(test);
+	int temp1jlkldjflj = 543;
+	A(temp1jlkldjflj);
 
 	return 0;
 }
