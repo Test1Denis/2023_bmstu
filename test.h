@@ -24,6 +24,12 @@ void assert_equal(T expr, T expr_true,
 					int numTest = 0)
 {
 	static int currentTest = 0;
+
+	if (exprString.size() == 0) {
+		currentTest = 0;
+		return;
+	}
+
 	currentTest++;
 	if (numTest != 0) {
 		currentTest = numTest;
@@ -43,6 +49,7 @@ void assert_equal(T expr, T expr_true,
 }
 #define ASSERT_EQUAL(expr, expr_true)	assert_equal(expr, expr_true, #expr, #expr_true)
 #define ASSERT_EQUAL_numTest(expr, expr_true, numTest)	assert_equal(expr, expr_true, #expr, #expr_true, numTest)
+
 
 
 #endif
