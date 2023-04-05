@@ -11,9 +11,17 @@ class IData {
 		int datalen;
 	public :
 
-		bool addToEnd(T el) { return false; }
-		bool getFromEnd(T& el) { return false; }
+		bool addToEnd(T el) { 
+			std::cout << __func__ << " : base class" << std::endl;
+			return false; 
+		}
+		bool getFromEnd(T& el) { 
+			std::cout << __func__ << " : base class" << std::endl;
+			return false; 
+		}
 		IData() {
+			datalen = 0;
+			size1 = 16;
 			ar = new T [16];
 		}
 		~IData() {
@@ -27,6 +35,8 @@ class Filo : public IData<T> {
 		Filo() : IData<T>() {}
 
 		bool addToEnd(T el) {
+			std::cout << __func__ << " : inheritance class" << std::endl;
+
 			if (IData<T>::datalen == IData<T>::size1) {
 				return false;
 			}
@@ -35,6 +45,7 @@ class Filo : public IData<T> {
 		}
 
 		bool getFromEnd(T& el) {
+			std::cout << __func__ << " : inheritance class" << std::endl;
 			if (IData<T>::datalen == 0) {
 				return false;
 			}

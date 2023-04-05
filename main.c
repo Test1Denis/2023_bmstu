@@ -8,12 +8,19 @@
 
 #include "main.h"
 #include "test.h"
+#include "filo.h"
 
 extern int currentTest;
 
 
 int getMax(int a, int b) {
 	return a > b ? a : b;
+}
+
+template<class T>
+void test(class IData<T>& temp) {
+
+	temp.addToEnd(10);
 }
 
 void test_test() {
@@ -23,7 +30,15 @@ void test_test() {
 	ASSERT_EQUAL(getMax(10,20), 20);
 }
 
+
+
 int main() {
 	RUN_TEST(test_test);
+
+	Filo<int> tempFilo;
+
+	tempFilo.addToEnd(10);
+	test(tempFilo);
+
 
 }
