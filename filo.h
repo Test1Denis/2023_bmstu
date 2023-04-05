@@ -11,11 +11,11 @@ class IData {
 		int datalen;
 	public :
 
-		bool addToEnd(T el) { 
+		virtual bool addToEnd(T el) { 
 			std::cout << __func__ << " : base class" << std::endl;
 			return false; 
 		}
-		bool getFromEnd(T& el) { 
+		virtual bool getFromEnd(T& el) { 
 			std::cout << __func__ << " : base class" << std::endl;
 			return false; 
 		}

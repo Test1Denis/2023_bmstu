@@ -23,6 +23,16 @@
 	2. реализовать циклический буфер в классе class RingBuffer {}.
 		Написать функция для проверки его работоспособности.
 
+05.04.2023
+	1.	реализовать IData + Filo + Fifo + RingBuffer + LinkedList + DoubleLinkedList
+		class LinkNodes {}
+		class IData {}
+		class Filo : IData {}
+		class Fifo : IData {}
+		class LinkedList : public IData, LinkNodes
+	2. реализовать дополнительные методы для фремйворка тестирования
+	3. протестировать Filo, Fifo, RingBuffer, LinkedList, DoubleLinkedList
+
 
 
 
